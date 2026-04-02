@@ -13,14 +13,10 @@ return new class extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
-            $table->landlord_id();
-            $table->name();
-            $table->address();
-            $table->enum('property_type', ['apartment', 'house', 'commercial'])->default('apartment');
-            $table->kra_pin();
-            $table->is_active();
-            $table->created_at();
-            $table->updated_at();
+            $table->string('unit_number');
+            $table->boolean('is_occupied')->default(false);
+            $table->decimal('monthly_rent', 10, 2);
+            $table->timestamps();
         });
     }
 

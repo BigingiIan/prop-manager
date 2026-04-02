@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transactions', function (Blueprint $table) {
+        Schema::create('rent_payments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('tenant_id')->constrained();
-            $table->decimal('amount', 10, 2);
-            $table->date('payment_date');
-            $table->date('for_month');
             $table->timestamps();
         });
     }
@@ -26,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transactions');
+        Schema::dropIfExists('rent_payments');
     }
 };

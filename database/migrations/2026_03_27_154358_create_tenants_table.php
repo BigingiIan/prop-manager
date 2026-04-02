@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('tenants', function (Blueprint $table) {
             $table->id();
             $table->foreignId('unit_id')->constrained();
-            $table->string('full_name');
+            $table->string('name');
             $table->string('phone_number');
             $table->string('id_number')->unique();
-            $table->decimal('balance', 10, 2)->default(0.00);
+            $table->decimal('outstanding_balance', 10, 2)->default(0.00);
             $table->timestamps();
         });
     }
